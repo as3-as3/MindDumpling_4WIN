@@ -21,46 +21,20 @@ repositories {
 val daggerVersion by extra("2.56.1")
 
 dependencies {
-    implementation(compose.desktop.macos_arm64  )
-
-    // Cyclone : https://github.com/theapache64/cyclone
-    implementation("com.github.theapache64:cyclone:1.0.0-alpha02")
-
-    // Decompose : Decompose
-    val voyagerVersion = "1.1.0-beta03"
-    // Navigator
-    implementation("cafe.adriel.voyager:voyager-navigator:$voyagerVersion")
-
-    /**
-     * Testing Dependencies
-     */
-    testImplementation("org.mockito:mockito-inline:5.2.0")
-    testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
-
-    // DaggerMock
-    testImplementation("com.github.fabioCollini.daggermock:daggermock:0.8.5")
-    testImplementation("com.github.fabioCollini.daggermock:daggermock-kotlin:0.8.5")
-
-    // Mockito Core : Mockito mock objects library core API and implementation
-    testImplementation("org.mockito:mockito-core:5.17.0")
-
-    // Expekt : An assertion library for Kotlin
-    testImplementation("com.github.theapache64:expekt:1.0.0")
-
-    // JUnit
-
-    // Kotlinx Coroutines Test : Coroutines support libraries for Kotlin
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.0")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.8.0")
-    testImplementation(compose("org.jetbrains.compose.ui:ui-test-junit4"))
-
-    // JUnit : JUnit is a unit testing framework for Java, created by Erich Gamma and Kent Beck.
-    testImplementation(kotlin("test-junit5"))
+    implementation(compose.desktop.currentOs)
+    implementation(compose.material3)
+    implementation(compose.ui)
+    implementation(compose.foundation)
+    implementation(compose.runtime)
+    implementation("org.json:json:20240303")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.8.0")
+    implementation("org.apache.pdfbox:pdfbox:3.0.1")
+    implementation("org.jfree:jfreesvg:3.4.4")
 }
 
 compose.desktop {
     application {
-        mainClass = "com.neurodumpling.app.AppKt"
+        mainClass = "com.neurodumpling.app.MainKt"
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "MindDumplingDesktop"
@@ -79,7 +53,14 @@ compose.desktop {
             macOS {
                 iconFile.set(iconsRoot.resolve("launcher_icons/macos.icns"))
             }
-
         }
+    }
+}
+
+// Global bypass for jpackage tasks to use the host JDK
+tasks.withType<org.jetbrains.compose.desktop.application.tasks.AbstractJPackageTask> {
+    val jdkPath = System.getProperty("org.gradle.java.home") ?: System.getenv("JAVA_HOME")
+    if (jdkPath != null) {
+        runtimeImage.set(file(jdkPath))
     }
 }

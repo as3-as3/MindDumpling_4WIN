@@ -1,25 +1,20 @@
-package com.neurodumpling.app.models
+package com.neurodumpling.app.model
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "nodes")
 data class Node(
-    @PrimaryKey val id: String,
+    val id: String,
     val spaceId: String = "default",
     val parentId: String? = null,
     val text: String,
     val x: Float,
     val y: Float,
     val width: Float = 180f,
-    val height: Float = 50f,
+    val height: Float = 80f,
     val color: String? = null,
-    val category: String? = null // For PESR: P, E, S, R
+    val category: String? = null
 )
 
-@Entity(tableName = "relationships")
 data class Relationship(
-    @PrimaryKey val id: String,
+    val id: String,
     val spaceId: String = "default",
     val fromId: String,
     val toId: String,
@@ -29,11 +24,10 @@ data class Relationship(
     val curveOffset: Float = 30f
 )
 
-@Entity(tableName = "spaces")
 data class Space(
-    @PrimaryKey val id: String,
+    val id: String,
     val name: String,
-    val type: String // "mindmap" or "conceptmap"
+    val type: String
 )
 
 data class MindMapData(

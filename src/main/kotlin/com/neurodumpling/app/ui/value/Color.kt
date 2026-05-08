@@ -1,4 +1,4 @@
-package com.neurodumpling.app.ui
+package com.neurodumpling.app.ui.value
 
 import androidx.compose.ui.graphics.Color
 
