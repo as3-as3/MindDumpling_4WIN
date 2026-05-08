@@ -18,6 +18,17 @@ This version is production-ready for desktop use.
 - **Print Parity**: Automatic light-background enforcement for high-quality printing.
 - **Deep Integration**: Seamlessly manage nodes, relationships, and cognitive maps.
 
+## 📸 Visual Previews
+<p align="center">
+  <img src="Screenshots%20Previews/dark2.png" width="45%" />
+  <img src="Screenshots%20Previews/light-mode-ui.png" width="45%" />
+</p>
+<p align="center">
+  <img src="Screenshots%20Previews/dark5.png" width="30%" />
+  <img src="Screenshots%20Previews/dark1.png" width="30%" />
+  <img src="Screenshots%20Previews/Export%20Sample.png" width="30%" />
+</p>
+
 ## 📱 Mobile Companion
 This project is part of the MindDumpling ecosystem. You can find the Android version here:
 👉 **[MindDumpling Android Repo](https://github.com/as3-as3/MindDumpling_Android)**
