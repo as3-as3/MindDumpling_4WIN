@@ -3,7 +3,8 @@
 Professional Mind Mapping application for Windows, built with **Compose Multiplatform** and **Kotlin**. This is the desktop counterpart to the MindDumpling Android ecosystem.
 
 ## 🚀 Quick Start
-- **Portable Version**: Download the `MindDumpling_Desktop_Final.zip`, extract it, and run `MindDumplingPortable.exe`. No installation required.
+- **Download**: Get the latest version from the [GitHub Releases](https://github.com/as3-as3/MindDumpling_4WIN/releases/latest).
+- **Portable Version**: Extract the ZIP and run `MindDumplingPortable.exe`. No installation required.
 - **MSI Installer**: Use the `.msi` file inside the zip for a standard Windows installation with Start Menu integration.
 
 ## 🚀 Release Status: v1.0.0 (Stable Alpha)
