@@ -90,9 +90,14 @@ object DesktopExporter {
         val padding = 100
         val topPadding = 150
         val bottomPadding = 150
+        
+        // Sanity Check: Cap dimensions at 10,000px to prevent OOM
+        val calculatedWidth = (maxX - minX + padding * 2).toInt().coerceIn(100, 10000)
+        val calculatedHeight = (maxY - minY + padding + topPadding + bottomPadding).toInt().coerceIn(100, 10000)
+        
         return ExportMetrics(
-            width = (maxX - minX + padding * 2).toInt(),
-            height = (maxY - minY + padding + topPadding + bottomPadding).toInt(),
+            width = calculatedWidth,
+            height = calculatedHeight,
             minX = minX,
             minY = minY,
             padding = padding,

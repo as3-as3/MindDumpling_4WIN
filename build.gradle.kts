@@ -11,6 +11,14 @@ plugins {
 group = "com.neurodumpling.app"
 version = "1.0.0"
 
+kotlin {
+    jvmToolchain(17)
+}
+
+tasks.withType<KotlinCompile> {
+    kotlinOptions.jvmTarget = "17"
+}
+
 repositories {
     mavenCentral()
     google()
@@ -57,7 +65,12 @@ compose.desktop {
     }
 }
 
-// Global bypass for jpackage tasks to use the host JDK
+tasks.register<Copy>("copyDependencies") {
+    from(configurations.runtimeClasspath)
+    into(layout.buildDirectory.dir("libs"))
+}
+
+// Global bypass for jpackage tasks
 tasks.withType<org.jetbrains.compose.desktop.application.tasks.AbstractJPackageTask> {
     val jdkPath = System.getProperty("org.gradle.java.home") ?: System.getenv("JAVA_HOME")
     if (jdkPath != null) {

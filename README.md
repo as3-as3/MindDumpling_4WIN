@@ -6,8 +6,14 @@ Professional Mind Mapping application for Windows, built with **Compose Multipla
 - **Portable Version**: Download the `MindDumpling_Desktop_Final.zip`, extract it, and run `MindDumplingPortable.exe`. No installation required.
 - **MSI Installer**: Use the `.msi` file inside the zip for a standard Windows installation with Start Menu integration.
 
+## 🚀 Release Status: v1.0.0 (Stable Alpha)
+This version is production-ready for desktop use. 
+- **Platform**: Windows 10/11
+- **Compatibility**: Fixed JVM toolchain (Java 17) and Fat-Dependency bundling for standalone execution.
+
 ## ✨ Key Features
 - **High-Fidelity Export**: Support for PNG, PDF, and SVG with professional PESR-Legends and metadata.
+- **Sanity Bounds**: Smart coordinate capping to prevent resource exhaustion during massive exports.
 - **Print Parity**: Automatic light-background enforcement for high-quality printing.
 - **Deep Integration**: Seamlessly manage nodes, relationships, and cognitive maps.
 
