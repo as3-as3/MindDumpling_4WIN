@@ -31,7 +31,7 @@ This version is production-ready for desktop use.
 
 ## 📱 Mobile Companion
 This project is part of the MindDumpling ecosystem. You can find the Android version here:
-👉 **[MindDumpling Android Repo](https://github.com/as3-as3/MindDumpling_Android)**
+👉 **[MindDumpling Android (4Smartboards)](https://github.com/as3-as3/MindDumpling_4Smartboards)**
 
 ## 🛠️ Build System (Gold-Standard)
 The project uses a custom, decoupled build strategy to ensure stability on Windows:
