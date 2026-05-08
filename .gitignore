@@ -1,28 +1,47 @@
-# Gradle
-.gradle
+# ==========================================
+# MINDDUMPLING DESKTOP GIT-RULES
+# ==========================================
+
+# 1. Gradle & Build (Standard)
+# Wir ignorieren die lokalen Gradle-Caches und Standard-Build-Ordner.
+.gradle/
 build/
 
-# IDE
-.idea
-*.iml
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Centralized Build Outputs (MindDumpling Gold-Standard)
-/D:/BUILD_TEMP/
+# 2. Centralized Gold-Standard Redirects
+# Wir ignorieren den externen Build-Ordner auf D:, damit dortige MSI-Dateien
+# nicht versehentlich ins Git wandern.
+D:/BUILD_TEMP/
 build_output.log
 
-# Local Toolchain
-/D:/BUILD_TOOLS/
+# 3. Local Toolchain (Gold-Standard)
+# Wir ignorieren den Tool-Ordner (JDK/WiX), damit das Repo portabel bleibt
+# und keine Pfade von D: festschreibt.
+D:/BUILD_TOOLS/
 
-# Keystores (Sensitive)
+# 4. Helper Scripts & Agents
+# Wir ignorieren die AI-Watcher und Build-Scripte. Sie sind nützliche Tools
+# für DICH lokal, gehören aber nicht zum Kern-Quellcode.
+ai_watcher.py
+ai_watcher.ps1
+build_msi_manual.ps1
+
+# 5. Local Release Binaries (Safety First)
+# Wir behalten die fertigen Programme (MSI/Portable) lokal in diesem Ordner,
+# aber Git ignoriert sie komplett. So hast du sie immer griffbereit,
+# ohne dein Repository (und GitHub) auf GB-Größe aufzublähen.
+release_binaries/
+MindDumpling_Desktop_Final.zip
+
+# 6. Security (Sensitive Data)
+# Keystores und Passwörter dürfen NIEMALS ins Git.
 *.jks
 *.p12
 *.keystore
 
-# Local Agent Scripts
-ai_watcher.py
-ai_watcher.ps1
-build_msi_manual.ps1
+# 7. IDE & OS (Housekeeping)
+# Verhindert Müll von IntelliJ oder Windows (Thumbnails) im Repo.
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+desktop.ini
